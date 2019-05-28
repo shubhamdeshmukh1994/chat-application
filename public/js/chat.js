@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://localhost:3001');
 
 // Query DOM
 var message = document.getElementById('message'),

@@ -4,8 +4,8 @@ var socket = require('socket.io');
 
 
 var app = express();
-var server = app.listen(3000, function(){
-    console.log('listening for requests on port 3000,');
+var server = app.listen(3001, function(){
+    console.log('listening for requests on port 3001,');
 });
 
 
@@ -26,5 +26,12 @@ io.on('connection', (socket) => {
     socket.on('typing', function(data){
         socket.broadcast.emit('typing', data);
     });
-
+    socket.on('payment',function(data){
+        socket.broadcast('payment',data);
+    });
+    socket.on('btnclicked',function(data){
+        console.log("data send")
+        socket.broadcast.emit('btnclicked','sent from server');
+    })
+    
 });
